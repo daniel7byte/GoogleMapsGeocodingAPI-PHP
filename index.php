@@ -27,19 +27,19 @@ if (isset($_GET['find'])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Jose's Map</title>
-	<link rel="stylesheet" href="flatly.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jose's Map</title>
+    <link rel="stylesheet" href="flatly.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=<?=$api_key?>" ></script>
     <style>
-    	#map{
-			width: 100%;
-			height: 400px;
-			border: #2c3e50 solid;
-			border-width: 4px 4px 4px 4px;
-    	}
+        #map{
+            width: 100%;
+            height: 400px;
+            border: #2c3e50 solid;
+            border-width: 4px 4px 4px 4px;
+        }
     </style>
     <script src="gmaps.min.js"></script>
     <script type="text/javascript">
@@ -47,46 +47,45 @@ if (isset($_GET['find'])) {
         $(document).ready(function(){
             map = new GMaps({
                 div: '#map',
-			  	lat: <?=$latitude?>,
-			  	lng: <?=$longitude?>,
+                lat: <?=$latitude?>,
+                lng: <?=$longitude?>,
                 zoom: 16,
-				mapTypeId: google.maps.MapTypeId.HYBRID
+                mapTypeId: google.maps.MapTypeId.HYBRID
             });
 
             map.addMarker({
-			  lat: <?=$latitude?>,
-			  lng: <?=$longitude?>,
-			  title: '<?=$formatted_address?>',
-			  infoWindow: {
-			  	content: '<?=$formatted_address?>'
-			  }
-			});
-
+                lat: <?=$latitude?>,
+                lng: <?=$longitude?>,
+                title: '<?=$formatted_address?>',
+                infoWindow: {
+                    content: '<?=$formatted_address?>'
+                }
+            });
         });
     </script>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h1 style="text-align: center;">Google Maps Geocoding API - PHP</h1>
-				<form class="form-inline" method="get" style="text-align: center;">
-					<div class="form-group">
-						<input class="form-control" type="text" name="find" id="find" value="<?=urldecode($find)?>">
-					</div>
-					<input class="btn btn-primary" type="submit" value="Find">
-				</form>
-				<br>
-				<div style="text-align: center;">
-					<kbd><kbd>Latitude:</kbd><?=$latitude?>, <kbd>Longitude:</kbd><?=$longitude?></kbd>
-				</div>
-			</div>
-		</div>
-		<hr>
-		<div class="row">
-			<div id="map"></div>
-		</div>
-	</div>
-	<script src="bootstrap.min.js"></script>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 style="text-align: center;">Google Maps Geocoding API - PHP</h1>
+                <form class="form-inline" method="get" style="text-align: center;">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="find" id="find" value="<?=urldecode($find)?>">
+                    </div>
+                    <input class="btn btn-primary" type="submit" value="Find">
+                </form>
+                <br>
+                <div style="text-align: center;">
+                    <kbd><kbd>Latitude:</kbd><?=$latitude?>, <kbd>Longitude:</kbd><?=$longitude?></kbd>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div id="map"></div>
+        </div>
+    </div>
+    <script src="bootstrap.min.js"></script>
 </body>
 </html>
