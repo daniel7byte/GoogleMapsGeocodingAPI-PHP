@@ -8,7 +8,7 @@ $formatted_address = null;
 if (isset($_GET['find'])) {
 
     // Parametros de Configuracion
-    $api_key = "AIzaSyBhi-cegCT2oGrLkK9hlP8A96jvaxmhamM";
+    $api_key = ""; // API Key Google Maps
 
     $find = urlencode(trim($_GET['find']));
 
